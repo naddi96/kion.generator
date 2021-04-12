@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>Grid Template for Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/grid/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="grid.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <button onclick="genera()" id="myBtn" title="Go to top">genera</button>
+    <button onclick="reset()" id="Mybtn2" title="Gsdsdo to top">reset</button>
+    <div class="container">
+
+      <h1>Random kion generator</h1>
+     
+    <div id="prova">
+
+<!-- /container 
+        <div class="row">
+        <div class="col-4">.col-4</div>
+        <div class="col-4">.col-4</div>
+        <div class="col-4">.col-4</div>
+      </div> 
+
+r -->
+
+
+    </div>
+
+
+</div>
+    </div> 
+  </body>
+
+
+ 
+<script>
+data={
+    "verso":[
+        "mikicamaie",
+        "idaricamaie"
+    ],
+    "braccia": [
+        "Gedambarai",
+        "Sodoke",
+        "Uchucke",
+        "Morotouke",
+        "Gigiuke jodan",
+        "Gigiuke getan",
+        "Shudoke",
+        "Jonadoke",
+        "Junzukin",
+        "Jakozuki",
+        "Jakozuki nozzucomi",
+        "junzukin nozzucomi",
+        "Nukite",
+        "Tezuki"
+    ],
+    "posizione gambe": [
+        "Kette",
+        "Necoasci shoman",
+        "Necoasci",
+        "Kibadasci",
+        "Shicotashi",
+        "Zeconzudasci",
+        "Amne Necoasci",
+        "Mamne Necoasci",
+        "Coconzubadasci"
+    ]
+}
+
+verso =randomFromlist(data["verso"])
+
+function reset(){
+    var div = document.getElementById('prova');
+    div.innerHTML=""
+    verso=randomFromlist(data["verso"])
+
+}
+
+function genera(){
+
+    var gambe= randomFromlist(data['posizione gambe'])
+    var braccia=randomFromlist(data['braccia'])
+    var div = document.getElementById('prova');
+    if (braccia == "Jakozuki nozzucomi" || braccia == "junzukin nozzucomi"){
+        gambe="";
+    }
+
+    if( gambe=="Kette"){
+        gambe=braccia
+        braccia="Kette"
+    }
+
+    var stuff='<div class="row">'+
+        '<div class="col-sm-4">'+braccia+'</div>'+
+        '<div class="col-sm-4">'+gambe+'</div>'+
+       '<div class="col-sm-4">'+verso+'</div>'+
+      '</div>'
+    div.innerHTML+= stuff
+    window.scrollTo(0,document.body.scrollHeight);
+
+
+}
+
+
+
+function randomFromlist(lista) {
+  return lista[Math.floor((Math.random() * lista.length) + 0)];
+}
+</script>
+
+  </html>
